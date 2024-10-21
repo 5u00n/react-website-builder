@@ -24,7 +24,7 @@ const EditorComponent = () => {
         <ResizablePanel defaultWidth={250} minWidth={200} maxWidth={400}>
           <Sidebar className="w-full h-full" />
         </ResizablePanel>
-        <div className="flex-grow p-4 overflow-auto grow">
+        <div className="flex-grow p-4 overflow-auto">
           <Frame>
             <Element is={Container} canvas data-cy="root-container" background="#FFFFFF" padding={20}>
             </Element>
