@@ -109,3 +109,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [shadcn UI](https://ui.shadcn.com/)
 - [Aceternity UI](https://ui.aceternity.com/)
 - [Firebase](https://firebase.google.com/)
+
