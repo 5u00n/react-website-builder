@@ -10,10 +10,11 @@ import { Button } from '../Elements/Button';
 import { Container } from '../Elements/Container';
 import { Blog } from '../Elements/Blog';
 import { FocusCards } from '../Blocks/FocusCards';
+import { HeroSection } from '../Blocks/HeroSection';
 import { FaFont, FaRegSquare, FaHeading, FaList, FaTable, FaImage, FaRegHandPointer, FaRegObjectGroup } from 'react-icons/fa';
 
 const componentList = [
-    { name: 'Text', type: Text, props: { text: 'Sample Text', dataCy: 'text-component' }, icon: FaFont },
+    { name: 'Text', type: Text, props: { text: 'Sample Text'}, icon: FaFont },
     { name: 'Card', type: Card, icon: FaRegSquare },
     { name: 'Header', type: Header, icon: FaHeading },
     { name: 'List', type: List, icon: FaList },
@@ -22,14 +23,15 @@ const componentList = [
     { name: 'Button', type: Button, icon: FaRegHandPointer },
     { name: 'Container', type: Container, icon: FaRegObjectGroup },
     { name: 'Blog', type: Blog, icon: FaRegObjectGroup },
-    { name: 'Focus Cards', type: FocusCards, icon: FaRegObjectGroup }   
+    { name: 'Focus Cards', type: FocusCards, icon: FaRegObjectGroup },
+    { name: 'Hero Section', type: HeroSection, icon: FaRegObjectGroup }
 ];
 
 const Sidebar = () => {
     const { connectors } = useEditor();
 
     return (
-        <div className="w-64 p-4 flex flex-col h-screen">
+        <div className="w-full p-4 flex flex-col h-screen ">
             <h2 className="text-xl font-bold mb-2">Components</h2>
             <div className="flex-grow overflow-y-auto mb-8">
                 <div className="space-y-2 bg-gray-800 rounded-lg p-4 text-white">

@@ -22,7 +22,7 @@ const SettingsPanel = () => {
   });
 
   return (
-    <div className="w-80 bg-gray-100 p-4 h-screen flex flex-col">
+    <div className="w-full p-4 h-screen flex flex-col ">
       <h2 className="text-lg font-bold mb-4">Settings</h2>
       <div className="flex-shrink-0 mb-4">
         <p className="text-sm font-bold mb-2">Selected Component</p>

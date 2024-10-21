@@ -13,20 +13,26 @@ import { Image } from '../Elements/Image';
 import { Blog } from '../Elements/Blog';
 import { FocusCards } from '../Blocks/FocusCards';
 import Navbar from './Navbar';
+import { HeroSection } from '../Blocks/HeroSection';
+import ResizablePanel from './ResizablePanel';
 
 const EditorComponent = () => {
   return (
-    <Editor resolver={{ Text, Container, Image, Button, Header, List, Card, Table, Blog , FocusCards  }}>
+    <Editor resolver={{ Text, Container, Image, Button, Header, List, Card, Table, Blog, FocusCards, HeroSection }}>
       <Navbar />
-      <div className="flex h-screen bg-gray-100 justify-between">
-        <Sidebar className="w-[200px]" />
-        <div className=" p-4 overflow-auto w-full max-w-[800px]">
+      <div className="flex h-screen bg-gray-100">
+        <ResizablePanel defaultWidth={250} minWidth={200} maxWidth={400}>
+          <Sidebar className="w-full h-full" />
+        </ResizablePanel>
+        <div className="flex-grow p-4 overflow-auto grow">
           <Frame>
-            <Element is={Container} canvas data-cy="root-container" background="#FFFFFF" padding={20} >
+            <Element is={Container} canvas data-cy="root-container" background="#FFFFFF" padding={20}>
             </Element>
           </Frame>
         </div>
-        <SettingsPanel className="w-[200px]" />
+        <ResizablePanel defaultWidth={300} minWidth={200} maxWidth={400}>
+          <SettingsPanel className="w-full h-full" />
+        </ResizablePanel>
       </div>
     </Editor>
   );
