@@ -5,7 +5,6 @@ import EditorComponent from './components/Editor';
 function App() {
   return (
       <EditorComponent />
-
   );
 }
 

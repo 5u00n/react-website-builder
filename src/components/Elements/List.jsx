@@ -1,16 +1,29 @@
 import React from 'react';
 import { useNode } from '@craftjs/core';
-export const List = ({ items, listType, listStyleType, padding, fontSize, fontWeight, color }) => {
-  const { connectors: { connect, drag } } = useNode();
+
+export const List = ({ items, listType, listStyleType, padding, fontSize, fontWeight, color, orientation }) => {
+  const { connectors: { connect, drag }, selected, actions: { setProp } } = useNode((node) => ({
+    selected: node.events.selected
+  }));
+
   return (
-    <ul 
-      ref={ref => connect(drag(ref))} 
+    <ul
+      ref={ref => connect(drag(ref))}
       style={{
         listStyleType: listStyleType,
         paddingLeft: padding,
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: color,
+        flexDirection: orientation === 'horizontal' ? 'row' : 'column',
+        display: orientation === 'horizontal' ? 'flex' : 'block',
+        gap: orientation === 'horizontal' ? '10px' : '0px',
+        alignItems: orientation === 'horizontal' ? 'center' : 'flex-start',
+        justifyContent: orientation === 'horizontal' ? 'center' : 'flex-start',
+        flexWrap: orientation === 'horizontal' ? 'wrap' : 'nowrap',
+        width: orientation === 'horizontal' ? '100%' : 'auto',
+        height: orientation === 'horizontal' ? 'auto' : '100%',
+        margin: orientation === 'horizontal' ? '0px' : '10px 0px',
       }}
     >
       {items.map((item, index) => (
@@ -39,6 +52,15 @@ export const ListSettings = () => {
     }));
   };
 
+  const handleItemChange = (index, value) => {
+    setProp((props) => {
+      const newItems = [...props.items];
+      newItems[index] = value;
+      //return { ...props, items: newItems };
+      props.items = newItems;
+    });
+  };
+
   return (
     <div className="list-settings bg-white p-4 rounded-lg shadow-md space-y-4">
       <div className="grid grid-cols-2 gap-4">
@@ -54,13 +76,18 @@ export const ListSettings = () => {
           </select>
         </div>
         <div className="flex flex-col">
-          <label className="text-sm font-medium text-gray-700 mb-1"> Style Type</label>
-          <input
-            type="text"
+          <label className="text-sm font-medium text-gray-700 mb-1">Style Type</label>
+          <select
             value={props.listStyleType}
             onChange={(e) => setProp((props) => (props.listStyleType = e.target.value))}
             className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+          >
+            <option value="disc">Disc</option>
+            <option value="circle">Circle</option>
+            <option value="square">Square</option>
+            <option value="decimal">Decimal</option>
+            <option value="none">None</option>
+          </select>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -108,17 +135,24 @@ export const ListSettings = () => {
         </div>
       </div>
       <div className="flex flex-col">
+        <label className="text-sm font-medium text-gray-700 mb-1">Orientation</label>
+        <select
+          value={props.orientation}
+          onChange={(e) => setProp((props) => (props.orientation = e.target.value))}
+          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="vertical">Vertical</option>
+          <option value="horizontal">Horizontal</option>
+        </select>
+      </div>
+      <div className="flex flex-col">
         <label className="text-sm font-medium text-gray-700 mb-1">List Items</label>
         {props.items.map((item, index) => (
           <div key={index} className="flex items-center mb-2">
             <input
               type="text"
               value={item}
-              onChange={(e) => setProp((props) => {
-                const newItems = [...props.items];
-                newItems[index] = e.target.value;
-                return { ...props, items: newItems };
-              })}
+              onChange={(e) => handleItemChange(index, e.target.value)}
               className="flex-grow px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mr-2 w-full"
             />
             <button
@@ -147,7 +181,8 @@ export const ListDefaultProps = {
   fontSize: '16px',
   fontWeight: 'normal',
   color: '#000000',
-  items: ['Item 1', 'Item 2', 'Item 3']
+  items: ['Item 1', 'Item 2', 'Item 3'],
+  orientation: 'vertical'
 };
 
 List.craft = {
