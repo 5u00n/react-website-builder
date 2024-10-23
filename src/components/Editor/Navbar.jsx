@@ -96,7 +96,6 @@ const Navbar = () => {
           <img src="/path-to-your-logo.png" alt="Logo" className="h-8 w-auto" />
           <button onClick={handleCreateNewPage} className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded">
             <FaPlus />
-            <span>New Page</span>
           </button>
           <div className="flex items-center space-x-2">
             <FaEdit className="text-gray-400" />

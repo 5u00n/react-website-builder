@@ -55,7 +55,6 @@ export const FocusCards = ({ cards: initialCards }) => {
         </div>
     );
 };
-
 const FocusCardsSettings = () => {
     const { actions: { setProp }, cards } = useNode((node) => ({
         cards: node.data.props.cards,
