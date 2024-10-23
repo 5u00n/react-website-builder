@@ -15,12 +15,13 @@ import { FocusCards } from '../Blocks/FocusCards';
 import Navbar from './Navbar';
 import { HeroSection } from '../Blocks/HeroSection';
 import ResizablePanel from './ResizablePanel';
+import { Viewport } from './ViewPort';
 import { RenderNode } from './RenderNode';
 
 const EditorComponent = () => {
   return (
     <Editor resolver={{ Text, Container, Image, Button, Header, List, Card, Table, Blog, FocusCards, HeroSection }}
-    onRender={RenderNode}
+      onRender={RenderNode}
 
     >
       <Navbar />
@@ -29,11 +30,12 @@ const EditorComponent = () => {
           <Sidebar className="w-full h-full" />
         </ResizablePanel>
         <div className="flex-grow p-4 overflow-auto">
-          
-          <Frame>
-            <Element is={Container} canvas data-cy="root-container" background="#FFFFFF" padding={20}>
-            </Element>
-          </Frame>
+          <Viewport>
+            <Frame>
+              <Element is={Container} canvas data-cy="root-container" background="#FFFFFF" padding={20}>
+              </Element>
+            </Frame>
+          </Viewport>
         </div>
         <ResizablePanel defaultWidth={300} minWidth={200} maxWidth={400}>
           <SettingsPanel className="w-full h-full" />
