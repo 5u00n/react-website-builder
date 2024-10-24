@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEditor } from '@craftjs/core';
 
-const SettingsPanel = () => {
+export const SettingsPanel = () => {
   const { actions, selected } = useEditor((state, query) => {
     const currentNodeId = query.getEvent('selected').last();
     let selected;
@@ -50,5 +50,3 @@ const SettingsPanel = () => {
     </div>
   );
 };
-
-export default SettingsPanel;

@@ -2,7 +2,7 @@ import React from 'react';
 import { ResizableBox } from 'react-resizable';
 import 'react-resizable/css/styles.css';
 
-const ResizablePanel = ({ children, defaultWidth, minWidth, maxWidth }) => {
+export const ResizablePanel = ({ children, defaultWidth, minWidth, maxWidth }) => {
   return (
     <ResizableBox
       width={defaultWidth}
@@ -20,4 +20,3 @@ const ResizablePanel = ({ children, defaultWidth, minWidth, maxWidth }) => {
   );
 };
 
-export default ResizablePanel;

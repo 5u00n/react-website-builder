@@ -1,9 +1,9 @@
 import React, { useState, createElement, useEffect } from 'react';
 import { useEditor } from '@craftjs/core';
 import { FaPlus, FaEdit, FaMobileAlt, FaTabletAlt, FaDesktop, FaEye, FaSave, FaUpload, FaSearchPlus, FaSearchMinus, FaTh } from 'react-icons/fa';
-import { Container } from '../Elements/Container';
+import { Container } from '../../components/Elements';
 
-const Navbar = () => {
+export const Navbar = () => {
   const { actions, query, enabled } = useEditor((state) => ({
     enabled: state.options.enabled
   }));
