@@ -1,32 +1,13 @@
 import { Element, useEditor } from '@craftjs/core';
-import { Tooltip } from 'react-tooltip';
 import React from 'react';
-import styled from 'styled-components';
 
-import { FaRegSquare, FaRegCircle, FaFont, FaYoutube } from 'react-icons/fa';
+import { FaRegSquare, FaRegHandPointer, FaFont, FaYoutube } from 'react-icons/fa';
 import { Button } from '../../Elements/Button';
 import { Container } from '../../Elements/Container';
 import { Text } from '../../Elements/Text';
 import { Video } from '../../Elements/Video';
 
-const ToolboxDiv = styled.div`
-  transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  ${(props) => (!props.$enabled ? `width: 0;` : '')}
-  ${(props) => (!props.$enabled ? `opacity: 0;` : '')}
-`;
-
-const Item = styled.a`
-  svg {
-    width: 22px;
-    height: 22px;
-    fill: #707070;
-  }
-  ${(props) =>
-    props.move &&
-    `
-    cursor: move;
-  `}
-`;
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 export const Toolbox = () => {
   const {
@@ -37,10 +18,7 @@ export const Toolbox = () => {
   }));
 
   return (
-    <ToolboxDiv
-      $enabled={enabled && enabled}
-      className="toolbox transition w-12 h-full flex flex-col bg-white"
-    >
+    <div className={`toolbox transition w-12 h-full flex flex-col bg-white ${!enabled ? 'opacity-0' : ''}`}>
       <div className="flex flex-1 flex-col items-center pt-3">
         <div
           ref={(ref) =>
@@ -57,10 +35,13 @@ export const Toolbox = () => {
             )
           }
         >
-          <Tooltip title="Container" placement="right">
-            <Item className="m-2 pb-2 cursor-pointer block" move>
-              <FaRegSquare />
-            </Item>
+          <Tooltip>
+            <TooltipTrigger>
+              <a className="m-2 pb-2 cursor-move block">
+                <FaRegSquare className="w-5 h-5 fill-gray-500" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>Container</TooltipContent>
           </Tooltip>
         </div>
         <div
@@ -68,27 +49,36 @@ export const Toolbox = () => {
             create(ref, <Text fontSize="12" textAlign="left" text="Hi there" />)
           }
         >
-          <Tooltip title="Text" placement="right">
-            <Item className="m-2 pb-2 cursor-pointer block" move>
-              <FaFont />
-            </Item>
+          <Tooltip>
+            <TooltipTrigger>
+              <a className="m-2 pb-2 cursor-move block">
+                <FaFont className="w-5 h-5 fill-gray-500" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>Text</TooltipContent>
           </Tooltip>
         </div>
         <div ref={(ref) => create(ref, <Button />)}>
-          <Tooltip title="Button" placement="right">
-            <Item className="m-2 pb-2 cursor-pointer block" move>
-              <FaRegSquare />
-            </Item>
+          <Tooltip>
+            <TooltipTrigger>
+              <a className="m-2 pb-2 cursor-move block">
+                <FaRegHandPointer className="w-5 h-5 fill-gray-500" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>Button</TooltipContent>
           </Tooltip>
         </div>
         <div ref={(ref) => create(ref, <Video />)}>
-          <Tooltip title="Video" placement="right">
-            <Item className="m-2 pb-2 cursor-pointer block" move>
-              <FaYoutube />
-            </Item>
+          <Tooltip>
+            <TooltipTrigger>
+              <a className="m-2 pb-2 cursor-move block">
+                <FaYoutube className="w-5 h-5 fill-gray-500" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>Video</TooltipContent>
           </Tooltip>
         </div>
       </div>
-    </ToolboxDiv>
+    </div>
   );
 };
