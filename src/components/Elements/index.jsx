@@ -6,5 +6,5 @@ export * from './Header';
 export * from './List';
 export * from './Card';
 export * from './Table';
-export * from '../Blocks/Blog';
-export * from './Resizer'
+export * from './Resizer';
+export * from './Video';

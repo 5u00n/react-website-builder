@@ -1,11 +1,11 @@
 import { Editor, Frame, Element } from "@craftjs/core";
-import { Text, Container } from "../../components/Elements";
+import { Text, Container, Button, Image, Header, Video } from "../../components/Elements";
 import { Viewport } from "../../components/Editor";
 import { RenderNode } from "../../components/Editor";
 
 export const SimpleEditor = () => {
-    return <div className="bg-gray-200 h-screen w-screen">
-        <Editor resolver={{ Text, Container }}
+    return <div className="bg-gray-200 w-screen">
+        <Editor resolver={{ Text, Container, Button, Image, Header, Video }}
             enabled={false}
             onRender={RenderNode}
 

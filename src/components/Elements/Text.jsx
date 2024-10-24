@@ -42,7 +42,6 @@ export const Text = ({ text, fontSize, fontWeight, color, textAlign, fontFamily,
   return (
     <div
       className="p-2 rounded transition-all duration-300 ease-in-out"
-      style={{ backgroundColor: selected ? 'rgba(0, 0, 0, 0.1)' : 'transparent' }}
       {...props}
       ref={(ref) => connect(drag(ref))}
       onClick={() => selected && setEditable(true)}
