@@ -58,14 +58,21 @@ export const RenderNode = ({ render }) => {
   }, [dom, getPos]);
 
   useEffect(() => {
-    document
-      .querySelector('.craftjs-renderer')
-      .addEventListener('scroll', scroll);
+    const renderer = document.querySelector('.craftjs-renderer');
+    if (!renderer) return; // Check if the element exists
+
+    const handleScroll = () => {
+      try {
+        scroll();
+      } catch (error) {
+        console.error('Error during scroll handling:', error);
+      }
+    };
+
+    renderer.addEventListener('scroll', handleScroll);
 
     return () => {
-      document
-        .querySelector('.craftjs-renderer')
-        .removeEventListener('scroll', scroll);
+      renderer.removeEventListener('scroll', handleScroll);
     };
   }, [scroll]);
 
