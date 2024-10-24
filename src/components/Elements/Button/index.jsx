@@ -20,7 +20,7 @@ const defaultProps = {
         textAlign: 'center',
     },
     width: '100px',
-    height: '30px',
+    height: '80px',
 };
 
 export const Button = (props) => {
@@ -40,16 +40,21 @@ export const Button = (props) => {
     return (
         <Resizer
             propKey={{ width: 'width', height: 'height' }}
-            ref={connect}
-            className={cx('rounded w-full px-4 py-2', buttonStyleClass)}
-            style={{
-                background: backgroundColor,
-                border: `2px solid ${borderColor}`,
-                margin: marginStyle,
-            }}
-            {...otherProps}
         >
-            <Text {...textComponent} text={text} color={color} />
+            <UiButton
+                ref={connect}
+                className={cx('rounded w-full px-4 py-2', buttonStyleClass)}
+                style={{
+                    background: backgroundColor,
+                    border: `2px solid ${borderColor}`,
+                    margin: marginStyle,
+                    width: width,
+                    height: height,
+                    color: `rgba(${Object.values(color)})`,
+                }}
+                {...otherProps}>
+                <Text {...textComponent} text={text} color={color} />
+            </UiButton>
         </Resizer>
     );
 };
