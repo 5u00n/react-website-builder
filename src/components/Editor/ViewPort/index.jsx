@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { Toolbox } from './Toolbox';
+import { TooltipProvider } from '../../ui/tooltip';
 
 export const Viewport = ({ children }) => {
   const {
@@ -39,8 +40,9 @@ export const Viewport = ({ children }) => {
 
   return (
     <div className="viewport">
-      <div
-        className={cx(['flex h-full overflow-hidden flex-row w-full fixed'])}
+      <TooltipProvider>
+        <div
+          className={cx(['flex h-full overflow-hidden flex-row w-full fixed'])}
       >
         <Toolbox />
         <div className="page-container flex flex-1 h-full flex-col">
@@ -59,8 +61,9 @@ export const Viewport = ({ children }) => {
             </div>
           </div>
         </div>
-        <Sidebar />
-      </div>
+          <Sidebar />
+        </div>
+      </TooltipProvider>
     </div>
   );
 };

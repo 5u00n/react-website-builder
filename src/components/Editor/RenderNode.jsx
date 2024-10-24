@@ -2,34 +2,8 @@ import { useNode, useEditor } from '@craftjs/core';
 import { ROOT_NODE } from '@craftjs/utils';
 import React, { useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 
 import { FaArrowUp, FaTrash, FaArrowsAlt } from 'react-icons/fa';
-
-const IndicatorDiv = styled.div`
-  height: 30px;
-  margin-top: -29px;
-  font-size: 12px;
-  line-height: 12px;
-
-  svg {
-    fill: #fff;
-    width: 15px;
-    height: 15px;
-  }
-`;
-
-const Btn = styled.a`
-  padding: 0 0px;
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  > div {
-    position: relative;
-    top: -50%;
-    left: -50%;
-  }
-`;
 
 export const RenderNode = ({ render }) => {
   const { id } = useNode();
@@ -99,45 +73,49 @@ export const RenderNode = ({ render }) => {
     <>
       {isHover || isActive
         ? ReactDOM.createPortal(
-            <IndicatorDiv
-              ref={currentRef}
-              className="px-2 py-2 text-white bg-primary fixed flex items-center"
-              style={{
-                left: getPos(dom).left,
-                top: getPos(dom).top,
-                zIndex: 9999,
-              }}
-            >
-              <h2 className="flex-1 mr-4">{name}</h2>
-              {moveable ? (
-                <Btn className="mr-2 cursor-move" ref={drag}>
-                  <FaArrowsAlt />
-                </Btn>
-              ) : null}
-              {id !== ROOT_NODE && (
-                <Btn
-                  className="mr-2 cursor-pointer"
-                  onClick={() => {
-                    actions.selectNode(parent);
-                  }}
-                >
-                  <FaArrowUp />
-                </Btn>
-              )}
-              {deletable ? (
-                <Btn
-                  className="cursor-pointer"
-                  onMouseDown={(e) => {
-                    e.stopPropagation();
-                    actions.delete(id);
-                  }}
-                >
-                  <FaTrash />
-                </Btn>
-              ) : null}
-            </IndicatorDiv>,
-            document.querySelector('.page-container')
-          )
+          <div
+            ref={currentRef}
+            className="px-2 py-2 text-white bg-primary fixed flex items-center"
+            style={{
+              left: getPos(dom).left,
+              top: getPos(dom).top,
+              zIndex: 9999,
+              height: '30px',
+              marginTop: '-29px',
+              fontSize: '12px',
+              lineHeight: '12px',
+            }}
+          >
+            <h2 className="flex-1 mr-4">{name}</h2>
+            {moveable ? (
+              <a className="mr-2 cursor-move flex items-center opacity-90" ref={drag}>
+                <FaArrowsAlt className="w-4 h-4 fill-current text-white" />
+              </a>
+            ) : null}
+            {id !== ROOT_NODE && (
+              <a
+                className="mr-2 cursor-pointer flex items-center opacity-90"
+                onClick={() => {
+                  actions.selectNode(parent);
+                }}
+              >
+                <FaArrowUp className="w-4 h-4 fill-current text-white" />
+              </a>
+            )}
+            {deletable ? (
+              <a
+                className="cursor-pointer flex items-center opacity-90"
+                onMouseDown={(e) => {
+                  e.stopPropagation();
+                  actions.delete(id);
+                }}
+              >
+                <FaTrash className="w-4 h-4 fill-current text-white" />
+              </a>
+            ) : null}
+          </div>,
+          document.querySelector('.page-container')
+        )
         : null}
       {render}
     </>

@@ -1,53 +1,11 @@
 import { useEditor } from '@craftjs/core';
-import { Tooltip } from 'react-tooltip';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+
 import cx from 'classnames';
 import React from 'react';
-import styled from 'styled-components';
 
-import { FaCheck, FaRedo, FaUndo } from 'react-icons/fa';
+import { CheckIcon, ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import { MdBuild } from 'react-icons/md';
-
-const HeaderDiv = styled.div`
-  width: 100%;
-  height: 45px;
-  z-index: 99999;
-  position: relative;
-  padding: 0px 10px;
-  background: #d4d4d4;
-  display: flex;
-`;
-
-const Btn = styled.a`
-  display: flex;
-  align-items: center;
-  padding: 5px 15px;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 13px;
-  svg {
-    margin-right: 6px;
-    width: 12px;
-    height: 12px;
-    fill: #fff;
-    opacity: 0.9;
-  }
-`;
-
-const Item = styled.a`
-  margin-right: 10px;
-  cursor: pointer;
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: #707070;
-  }
-  ${(props) =>
-    props.disabled &&
-    `
-    opacity:0.5;
-    cursor: not-allowed;
-  `}
-`;
 
 export const Header = () => {
   const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
@@ -56,27 +14,41 @@ export const Header = () => {
     canRedo: query.history.canRedo(),
   }));
 
+  console.log(enabled);
+
   return (
-    <HeaderDiv className="header text-white transition w-full">
+    <div className="w-full h-11 z-[99999] relative px-2.5 bg-gray-400 flex text-white transition">
       <div className="items-center flex w-full px-4 justify-end">
         {enabled && (
-          <div className="flex-1 flex">
-            <Tooltip title="Undo" placement="bottom">
-              <Item disabled={!canUndo} onClick={() => actions.history.undo()}>
-                <FaUndo />
-              </Item>
+          <div className="flex-1 flex space-x-2.5">
+            <Tooltip>
+              <TooltipTrigger>
+                <a
+                  className={`cursor-pointer ${!canUndo ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  onClick={() => actions.history.undo()}
+                >
+                  <ArrowLeftIcon className="w-5 h-5 fill-gray-500" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>Undo</TooltipContent>
             </Tooltip>
-            <Tooltip title="Redo" placement="bottom">
-              <Item disabled={!canRedo} onClick={() => actions.history.redo()}>
-                <FaRedo />
-              </Item>
+            <Tooltip>
+              <TooltipTrigger>
+                <a
+                  className={`cursor-pointer ${!canRedo ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  onClick={() => actions.history.redo()}
+                >
+                  <ArrowRightIcon className="w-5 h-5 fill-gray-500" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>Redo</TooltipContent>
             </Tooltip>
           </div>
         )}
         <div className="flex">
-          <Btn
+          <a
             className={cx([
-              'transition cursor-pointer',
+              'flex items-center px-3.5 py-1.5 rounded text-white text-sm transition cursor-pointer',
               {
                 'bg-green-400': enabled,
                 'bg-primary': !enabled,
@@ -86,11 +58,11 @@ export const Header = () => {
               actions.setOptions((options) => (options.enabled = !enabled));
             }}
           >
-            {enabled ? <FaCheck /> : <MdBuild />}
+            {enabled ? <CheckIcon className="mr-1.5 w-3 h-3 fill-white opacity-90" /> : <MdBuild className="mr-1.5 w-3 h-3 fill-white opacity-90" />}
             {enabled ? 'Finish Editing' : 'Edit'}
-          </Btn>
+          </a>
         </div>
       </div>
-    </HeaderDiv>
+    </div>
   );
 };

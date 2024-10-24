@@ -1,13 +1,14 @@
 import { Editor, Frame, Element } from "@craftjs/core";
-import { Text, Container, Image, Button, Header, List, Card, Table, Blog } from "../../components/Elements";
-import { RenderNode } from "../../components/Editor/RenderNode";
-import { Viewport } from "../../components/Editor/ViewPort";
+import { Text, Container } from "../../components/Elements";
+import { Viewport } from "../../components/Editor";
+import { RenderNode } from "../../components/Editor";
 
 export const SimpleEditor = () => {
-    return <div>
-        <Editor resolver={{ Text, Container, Image, Button, Header, List, Card, Table, Blog }}
+    return <div className="bg-gray-200 h-screen w-screen">
+        <Editor resolver={{ Text, Container }}
             enabled={false}
             onRender={RenderNode}
+
         >
             <Viewport>
                 <Frame>
@@ -20,31 +21,19 @@ export const SimpleEditor = () => {
                         padding={['40', '40', '40', '40']}
                         custom={{ displayName: 'App' }}
                     >
+                        {/* <Element
+                            canvas
+                            is={Header}
+                            custom={{ displayName: 'Header' }}
+                        />
                         <Element
                             canvas
-                            is={Container}
-                            flexDirection="row"
-                            width="100%"
-                            height="auto"
-                            padding={['40', '40', '40', '40']}
-                            margin={['0', '0', '40', '0']}
-                            custom={{ displayName: 'Introduction' }}
-                        >
-                            <Element
-                                canvas
-                                is={Container}
-                                width="40%"
-                                height="100%"
-                                padding={['0', '20', '0', '20']}
-                                custom={{ displayName: 'Heading' }}
-                            >
-                                <Text
-                                    fontSize="23"
-                                    fontWeight="400"
-                                    text="Craft.js is a React framework for building powerful &amp; feature-rich drag-n-drop page editors."
-                                ></Text>
-                            </Element>
-                        </Element>
+                            is={Blog}
+                            custom={{ displayName: 'Blog' }}
+                        />
+                        <Element canvas is={Text} custom={{ displayName: 'Text' }} />
+                        <Element canvas is={Button} custom={{ displayName: 'Button' }} /> */}
+
                     </Element>
                 </Frame>
             </Viewport>
