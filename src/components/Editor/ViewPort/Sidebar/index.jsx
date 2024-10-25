@@ -16,7 +16,7 @@ export const Sidebar = () => {
 
   return (
     <div
-      className={`transition-opacity bg-white w-[280px] ${enabled ? 'opacity-100 mr-0' : 'opacity-0 mr-[-280px]'
+      className={`sidebar transition-opacity bg-white w-[280px] ${enabled ? 'opacity-100 mr-0' : 'opacity-0 mr-[-280px]'
         }`}
     >
       <div className="flex flex-col h-full">
