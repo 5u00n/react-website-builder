@@ -100,6 +100,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+##extra
+
+- please remove material ui , and typescript , i dont wnat to loose funtionality and style , also use tailwind for stttyling
+
 ## Acknowledgments
 
 - [CraftJS](https://craft.js.org/)

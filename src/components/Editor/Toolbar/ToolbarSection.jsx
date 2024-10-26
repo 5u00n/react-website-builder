@@ -24,7 +24,7 @@ export const ToolbarSection = ({ title, props, summary, children }) => {
   return (
     <div className="mb-0.5 max-h-full overflow-y-auto relative">
       <div className={`bg-transparent border-none relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-px before:bg-black/5 ${isExpanded ? 'my-0 min-h-[36px]' : ''}`}>
-        <div 
+        <div
           className="min-h-[36px] p-0 cursor-pointer select-none sticky top-0 bg-white z-10"
           onClick={handleSummaryClick}
         >
@@ -48,15 +48,17 @@ export const ToolbarSection = ({ title, props, summary, children }) => {
             </div>
           </div>
         </div>
-
-        {isExpanded && (
+        
+        {isExpanded ? (
           <div className="px-3 pb-3 overflow-y-auto max-h-[calc(100vh-100px)]" onClick={(e) => e.stopPropagation()}>
-            <div className="h-px bg-black/[0.12] my-1 mb-2" />
-            <div className="grid gap-1 grid-cols-2">
+            <div className="h-px  my-1 mb-2 bg-[#e0e0e0]"  />
+            <div className="grid gap-1 grid-cols-2 h-full">
               {children}
             </div>
           </div>
-        )}
+        ) : 
+        <div className="h-px bg-[#e0e0e0] my-1 mb-2" />
+        }
       </div>
     </div>
   );

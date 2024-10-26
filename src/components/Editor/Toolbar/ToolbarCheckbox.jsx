@@ -1,10 +1,8 @@
-import React from 'react';
-
-function StyledRadio({ checked, onChange, value, name, ...props }) {
+function StyledCheckbox({ checked, onChange, value, name, ...props }) {
   return (
     <div className="relative">
       <input
-        type="radio"
+        type="checkbox"
         checked={checked}
         onChange={onChange}
         value={value}
@@ -17,10 +15,10 @@ function StyledRadio({ checked, onChange, value, name, ...props }) {
   );
 }
 
-export const ToolbarRadio = ({ value, label, checked, onChange, name }) => {
+export const ToolbarCheckbox = ({ value, label, checked, onChange, name }) => {
   return (
     <label className="flex items-center space-x-2 text-[15px] cursor-pointer">
-      <StyledRadio 
+      <StyledCheckbox 
         value={value} 
         checked={checked}
         onChange={onChange}
@@ -28,18 +26,5 @@ export const ToolbarRadio = ({ value, label, checked, onChange, name }) => {
       />
       <span className="text-gray-700">{label}</span>
     </label>
-  );
-};
-
-export const ToolbarRadioGroup = ({ children, onChange, className }) => {
-  return (
-    <div className={className}>
-      {React.Children.map(children, child => {
-        return React.cloneElement(child, {
-          onChange: onChange,
-          name: 'radioGroup'
-        });
-      })}
-    </div>
   );
 };

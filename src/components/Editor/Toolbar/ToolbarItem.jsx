@@ -3,6 +3,7 @@ import React from 'react';
 
 import { ToolbarDropdown } from './ToolbarDropdown';
 import { ToolbarTextInput } from './ToolbarTextInput';
+import { ToolbarRadioGroup } from './ToolbarRadio';
 
 export const ToolbarItem = ({
   full = true,
@@ -77,8 +78,8 @@ export const ToolbarItem = ({
           {props.label ? (
             <h4 className="text-sm text-gray-500 mb-2">{props.label}</h4>
           ) : null}
-          <div
-            className="flex gap-4"
+          <ToolbarRadioGroup
+            className="flex gap-4 flex-wrap"
             onChange={(e) => {
               const value = e.target.value;
               setProp((props) => {
@@ -87,7 +88,7 @@ export const ToolbarItem = ({
             }}
           >
             {props.children}
-          </div>
+          </ToolbarRadioGroup>
         </div>
       ) : type === 'select' ? (
         <ToolbarDropdown

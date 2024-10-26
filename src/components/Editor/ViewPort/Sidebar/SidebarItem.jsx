@@ -30,7 +30,7 @@ export const SidebarItem = ({
         </span>
       </div>
       {visible ? (
-        <div className="w-full flex-1 overflow-auto">
+        <div className="w-full flex-1 ">
           {children}
         </div>
       ) : null}

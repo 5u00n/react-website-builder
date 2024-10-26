@@ -27,9 +27,7 @@ export const Sidebar = () => {
           visible={toolbarVisible}
           onChange={(val) => setToolbarVisible(val)}
         >
-          {
-            <Toolbar />
-          }
+          <Toolbar />
         </SidebarItem>
        
         <SidebarItem

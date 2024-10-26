@@ -25,24 +25,7 @@ export const ToolbarTextInput = ({
       className="w-full relative mt-[7px]"
       onClick={() => setActive(true)}
     >
-      {(type === 'color' || type === 'bg') && active ? (
-        <div className="absolute z-[99999] top-[calc(100%+10px)] left-[-5%]">
-          <div
-            className="fixed top-0 left-0 w-full h-full cursor-pointer"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setActive(false);
-            }}
-          />
-          <ChromePicker
-            color={value}
-            onChange={(color) => {
-              onChange(color.rgb);
-            }}
-          />
-        </div>
-      ) : null}
+ 
       
       <div className="relative w-full">
         {label && (
@@ -71,6 +54,27 @@ export const ToolbarTextInput = ({
           />
         </div>
       </div>
+
+      {(type === 'color' || type === 'bg') && active && (
+        <div className="mt-2 relative">
+          <div
+            className="fixed inset-0"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setActive(false);
+            }}
+          />
+          <div className="relative z-10">
+            <ChromePicker
+              color={value}
+              onChange={(color) => {
+                onChange(color.rgb);
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
