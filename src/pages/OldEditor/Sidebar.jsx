@@ -1,11 +1,11 @@
 import React from 'react';
 import { useEditor, Element } from '@craftjs/core';
-import { Text, Card, Header, List, Table, Image, Button, Container, } from '../../components/Elements';
-import { FocusCards, HeroSection, Blog} from '../../components/Blocks';
+import { Text, Header, List, Table, Image, Button, Container } from '../../components/Elements';
+import { FocusCards, HeroSection, Blog, Card } from '../../components/Blocks';
 import { FaFont, FaRegSquare, FaHeading, FaList, FaTable, FaImage, FaRegHandPointer, FaRegObjectGroup } from 'react-icons/fa';
 
 const componentList = [
-    { name: 'Text', type: Text, props: { text: 'Sample Text'}, icon: FaFont },
+    { name: 'Text', type: Text, props: { text: 'Sample Text' }, icon: FaFont },
     { name: 'Card', type: Card, icon: FaRegSquare },
     { name: 'Header', type: Header, icon: FaHeading },
     { name: 'List', type: List, icon: FaList },
@@ -29,7 +29,7 @@ export const Sidebar = () => {
                     {componentList.map((component) => (
                         <div
                             key={component.name} ref={(ref) => connectors.create(ref,
-                            <Element canvas is={component.type} {...component.props} />
+                                <Element canvas is={component.type} {...component.props} />
                                 , component.props)}
                             className="flex items-center w-full text-left p-3 hover:bg-gray-700 rounded cursor-move transition duration-200 ease-in-out"
                         >

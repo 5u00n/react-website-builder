@@ -1,7 +1,7 @@
 import React from 'react';
 import { Editor, Frame, Element } from '@craftjs/core';
-import { Text, Container, Image, Button, Header, List, Card, Table, } from '../../components/Elements';
-import { FocusCards, HeroSection, Blog } from '../../components/Blocks';
+import { Text, Container, Image, Button, Header, List, Table } from '../../components/Elements';
+import { FocusCards, HeroSection, Blog, Card  } from '../../components/Blocks';
 import { SettingsPanel } from './SettingsPanel';
 import { Navbar } from './Navbar';
 import { Sidebar } from './Sidebar';

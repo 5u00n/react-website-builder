@@ -5,7 +5,7 @@ import React from 'react';
 import { ButtonSettings } from './ButtonSettings';
 import { Button as UiButton } from '@/components/ui/button';
 
-import { Text } from '../Text';
+import { Text } from '../../OldElements/Text';
 import { Resizer } from '../Resizer';
 
 
@@ -89,7 +89,7 @@ export const Button = ({ buttonType = 'custom', ...props }) => {
             return (
                 <UiButton
                     ref={connect}
-                    
+
                     style={{
                         width: width,
                         height: height,
@@ -101,7 +101,7 @@ export const Button = ({ buttonType = 'custom', ...props }) => {
                     onClick={onClick}
                     {...otherProps}
                 >
-                    <Text  text={text} color={textColor} />
+                    <Text text={text} color={textColor} />
                 </UiButton>
             );
         } else if (buttonType === 'custom') {

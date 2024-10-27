@@ -1,6 +1,7 @@
 {
-  "short_name": "WebBuilder",
-  "name": "WebBuilder - Create and Edit Your Own Web Pages",
+  "short_name": "SiteBuilder",
+  "name": "Editable Site Builder",
+  "description": "Create and customize your own website with our easy-to-use Editable Site Builder. No coding skills required.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,19 +11,34 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#3498db",
-  "background_color": "#ecf0f1",
-  "description": "A powerful web page builder for creating and editing custom websites",
+  "background_color": "#ffffff",
   "orientation": "any",
-  "categories": ["productivity", "web development", "design"]
+  "categories": ["productivity", "web development", "design"],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
 }

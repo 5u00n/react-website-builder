@@ -17,7 +17,7 @@ export const Header = () => {
   console.log(enabled);
 
   return (
-    <div className="w-full h-11 z-[99999] relative px-2.5 bg-gray-400 flex text-white transition">
+    <div className={`w-full h-11 z-[99999] ${enabled ? 'relative' : 'fixed'} px-2.5 ${enabled ? 'bg-gray-400' : 'bg-transparent'} flex text-white transition`}>
       <div className="items-center flex w-full px-4 justify-end">
         {enabled && (
           <div className="flex-1 flex space-x-2.5">

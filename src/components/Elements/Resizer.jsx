@@ -54,7 +54,7 @@ const Indicators = ({ bound }) => (
   </div>
 );
 
-export const Resizer = ({ propKey, children, ...props }) => {
+export const Resizer = ({ propKey, minHeight, children, ...props }) => {
   const {
     id,
     actions: { setProp },
@@ -169,6 +169,8 @@ export const Resizer = ({ propKey, children, ...props }) => {
       }, {})}
       className={cx([
         {
+          'min-h-[100px]': minHeight === '100px',
+          [`min-h-[${minHeight}]`]: minHeight !== '100px',
           'm-auto': isRootNode,
           flex: true,
         },
