@@ -68,4 +68,8 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
-/build
+/build/
+
+./build
+
+build/
