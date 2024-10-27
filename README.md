@@ -1,10 +1,10 @@
-# Web Page Builder with CraftJS, Destack, React, Tailwind CSS, and Firebase
+# Web Page Builder with CraftJS, React, Tailwind CSS, and Firebase
 
-This project is a powerful web page builder that combines the flexibility of CraftJS and Destack with the robustness of React, Tailwind CSS, and Firebase. It allows users to create dynamic web pages with a drag-and-drop interface while leveraging Firebase for authentication and database management. The project also incorporates shadcn UI components and Aceternity UI for enhanced design capabilities.
+This project is a powerful web page builder that combines the flexibility of CraftJS with the robustness of React, Tailwind CSS, and Firebase. It allows users to create dynamic web pages with a drag-and-drop interface while leveraging Firebase for authentication and database management. The project also incorporates shadcn UI components and Aceternity UI for enhanced design capabilities.
 
 ## Features
 
-- Drag-and-drop page builder using CraftJS and Destack
+- Drag-and-drop page builder using CraftJS
 - React-based frontend for a smooth user experience
 - Tailwind CSS for utility-first styling
 - shadcn UI components for consistent and customizable UI elements
@@ -107,7 +107,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - [CraftJS](https://craft.js.org/)
-- [Destack](https://github.com/LiveDuo/destack)
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [shadcn UI](https://ui.shadcn.com/)
