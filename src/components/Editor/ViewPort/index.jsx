@@ -44,28 +44,24 @@ export const Viewport = ({ children }) => {
         <div
           className={cx(['flex h-full overflow-hidden flex-row w-full fixed'])}
         >
-          <div className="h-full overflow-auto">
-            <Toolbox />
-          </div>
+          <Toolbox />
           <div className="page-container flex flex-1 h-full flex-col">
             <Header />
             <div
               className={cx([
-                'craftjs-renderer flex-1 h-full w-full transition pb-8 overflow-auto',
+                'craftjs-renderer flex-1 h-full w-full transition overflow-auto',
                 {
                   'bg-renderer-gray': enabled,
                 },
               ])}
               ref={(ref) => connectors.select(connectors.hover(ref, null), null)}
             >
-              <div className="relative flex-col flex items-center pt-8">
+              <div className={`relative flex-col flex items-center ${enabled ? 'pt-8 w-[800px] mx-auto' : ''}`}>
                 {children}
               </div>
             </div>
           </div>
-          <div className="h-full overflow-auto" style={{ width: '300px', paddingRight: '17px', marginRight: '-17px' }}>
-            <Sidebar />
-          </div>
+          <Sidebar />
         </div>
       </TooltipProvider>
     </div>

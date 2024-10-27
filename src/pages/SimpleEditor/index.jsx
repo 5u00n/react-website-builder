@@ -16,26 +16,14 @@ export const SimpleEditor = () => {
                     <Element
                         canvas
                         is={Container}
-                        width="800px"
+                        width="100%"
                         height="auto"
                         background={{ r: 255, g: 255, b: 255, a: 1 }}
                         padding={['40', '40', '40', '40']}
                         custom={{ displayName: 'App' }}
                     >
-                        <Element
-                            canvas
-                            is={Header}
-                            custom={{ displayName: 'Header' }}
-                        />
-                        <Element
-                            canvas
-                            is={Blog}
-                            custom={{ displayName: 'Blog' }}
-                        />
-                        <Element canvas is={Text} custom={{ displayName: 'Text' }} />
-                        <Element canvas is={Button} custom={{ displayName: 'Button' }} />
-
                     </Element>
+
                 </Frame>
             </Viewport>
         </Editor>
