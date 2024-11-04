@@ -8,6 +8,7 @@ import { Text } from '../../Elements/Text';
 import { Video } from '../../Elements/Video';
 
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { ResizablePanel } from './../ResizablePanel';
 
 export const Toolbox = () => {
   const {
@@ -17,10 +18,15 @@ export const Toolbox = () => {
     enabled: state.options.enabled,
   }));
 
+  if (!enabled) {
+    return null;
+  }
+
   return (
-    <div className={`h-full overflow-auto ${enabled ? '' : 'hidden'}`}>
-      <div className={`toolbox transition w-12 h-full flex flex-col bg-white ${!enabled ? 'opacity-0' : ''}`}>
-        <div className="flex flex-1 flex-col items-center pt-3">
+    <ResizablePanel defaultWidth={50} minWidth={50} maxWidth={400}>
+    <div className={`h-full overflow-auto `}>
+      <div className={`toolbox transition w-12 h-full flex flex-col bg-white op`}>
+        <div className="grid grid-cols-2">
           <div
             ref={(ref) =>
               create(
@@ -82,5 +88,6 @@ export const Toolbox = () => {
         </div>
       </div>
     </div>
+    </ResizablePanel>
   );
 };

@@ -23,7 +23,6 @@ export const SimpleEditor = () => {
                         custom={{ displayName: 'App' }}
                     >
                     </Element>
-
                 </Frame>
             </Viewport>
         </Editor>
