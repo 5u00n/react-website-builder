@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNode } from '@craftjs/core';
+import {HeaderSettings} from './HeaderSettings';
 
 export const Header = ({
   text,

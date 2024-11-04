@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNode } from '@craftjs/core';
+import {ListSettings} from './ListSettings';
 
 export const List = ({
   items = [],

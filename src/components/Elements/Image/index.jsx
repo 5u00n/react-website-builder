@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNode } from '@craftjs/core';
+import { ImageSettings } from './ImageSettings';
 
 export const Image = ({
   src,
