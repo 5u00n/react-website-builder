@@ -25,8 +25,9 @@ export const Toolbox = () => {
   return (
     <ResizablePanel defaultWidth={50} minWidth={50} maxWidth={400}>
     <div className={`h-full overflow-auto `}>
-      <div className={`toolbox transition w-12 h-full flex flex-col bg-white op`}>
-        <div className="grid grid-cols-2">
+      <div className={`toolbox transition w-full h-full flex flex-col bg-white op`}>
+        <h6>Elements</h6>
+        <div className="flex flex-wrap">
           <div
             ref={(ref) =>
               create(
