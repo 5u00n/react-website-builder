@@ -68,7 +68,7 @@ const VideoSettings = () => {
 
 Video.craft = {
   props: {
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Default video URL
+    url: 'https://www.youtube.com/watch?v=F4cCsLqSfrM', // Default video URL
     controls: true,
     width: '640px',
     height: '360px',

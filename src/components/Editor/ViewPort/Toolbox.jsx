@@ -22,12 +22,13 @@ export const Toolbox = () => {
     return null;
   }
 
+
   return (
-    <ResizablePanel defaultWidth={50} minWidth={50} maxWidth={400}>
-    <div className={`h-full overflow-auto `}>
-      <div className={`toolbox transition w-full h-full flex flex-col bg-white op`}>
-        <h6>Elements</h6>
-        <div className="flex flex-wrap">
+    <ResizablePanel defaultWidth={90} minWidth={90} maxWidth={400}>
+    <div className={`h-full overflow-auto p-1`}>
+      <div className={`toolbox transition w-full h-full flex flex-col bg-white op border border-gray-200`}>
+        <h6 className='text-center text-xs font-bold py-3'>Elements</h6>
+        <div className="flex flex-wrap items-center justify-center">
           <div
             ref={(ref) =>
               create(
@@ -45,8 +46,9 @@ export const Toolbox = () => {
           >
             <Tooltip>
               <TooltipTrigger>
-                <a className="m-2 pb-2 cursor-move block">
-                  <FaRegSquare className="w-5 h-5 fill-gray-500" />
+                <a className="m-1 cursor-move flex flex-col items-center justify-center border border-gray-200 rounded p-1 shadow-sm w-[56px] h-[56px]">
+                  <FaRegSquare className="w-6 h-6 fill-gray-500" />
+                  <span className=' text-xs'>Container</span>
                 </a>
               </TooltipTrigger>
               <TooltipContent>Container</TooltipContent>
@@ -59,8 +61,9 @@ export const Toolbox = () => {
           >
             <Tooltip>
               <TooltipTrigger>
-                <a className="m-2 pb-2 cursor-move block">
-                  <FaFont className="w-5 h-5 fill-gray-500" />
+                <a className="m-1 cursor-move flex flex-col items-center justify-center border border-gray-200 rounded p-1 shadow-sm w-[56px] h-[56px]">
+                  <FaFont className="w-6 h-6 fill-gray-500" />
+                  <span className=' text-xs'>Text</span>
                 </a>
               </TooltipTrigger>
               <TooltipContent>Text</TooltipContent>
@@ -69,8 +72,9 @@ export const Toolbox = () => {
           <div ref={(ref) => create(ref, <Button />)}>
             <Tooltip>
               <TooltipTrigger>
-                <a className="m-2 pb-2 cursor-move block">
-                  <FaRegHandPointer className="w-5 h-5 fill-gray-500" />
+                <a className="m-1 cursor-move flex flex-col items-center justify-center border border-gray-200 rounded p-1 shadow-sm w-[56px] h-[56px]">
+                  <FaRegHandPointer className="w-6 h-6 fill-gray-500" />
+                  <span className=' text-xs'>Button</span>
                 </a>
               </TooltipTrigger>
               <TooltipContent>Button</TooltipContent>
@@ -79,8 +83,9 @@ export const Toolbox = () => {
           <div ref={(ref) => create(ref, <Video />)}>
             <Tooltip>
               <TooltipTrigger>
-                <a className="m-2 pb-2 cursor-move block">
-                  <FaYoutube className="w-5 h-5 fill-gray-500" />
+                <a className="m-1 cursor-move flex flex-col items-center justify-center border border-gray-200 rounded p-1 shadow-sm w-[56px] h-[56px]">
+                  <FaYoutube className="w-6 h-6 fill-gray-500" />
+                  <span className=' text-xs'>Video</span>
                 </a>
               </TooltipTrigger>
               <TooltipContent>Video</TooltipContent>
