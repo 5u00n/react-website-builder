@@ -26,7 +26,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
    ```
-   git clone -b craft-rake-js https://github.com/5u00n/react-webpage-builder.git
+   git clone https://github.com/5u00n/react-webpage-builder.git
    cd react-webpage-builder
    ```
 
@@ -100,7 +100,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-##extra
+## extra
 
 - please remove material ui , and typescript , i dont wnat to loose funtionality and style , also use tailwind for stttyling
 
@@ -112,4 +112,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [shadcn UI](https://ui.shadcn.com/)
 - [Aceternity UI](https://ui.aceternity.com/)
 - [Firebase](https://firebase.google.com/)
-
